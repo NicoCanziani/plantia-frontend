@@ -53,12 +53,21 @@ export default function Calendar() {
   }
 
   function handleSaved(ev) {
+    const items = Array.isArray(ev) ? ev : [ev];
     setEvents((prev) => {
-      const idx = prev.findIndex((e) => e.id === ev.id);
-      if (idx >= 0) { const next = [...prev]; next[idx] = ev; return next; }
-      return [ev, ...prev];
+      let next = [...prev];
+      items.forEach((item) => {
+        const idx = next.findIndex((e) => e.id === item.id);
+        if (idx >= 0) next[idx] = item;
+        else next = [item, ...next];
+      });
+      return next;
     });
-    toast.success(modal?.event ? 'Evento actualizado' : 'Evento creado');
+    const count = items.length;
+    toast.success(
+      modal?.event ? 'Evento actualizado' :
+      count > 1 ? `${count} eventos creados` : 'Evento creado'
+    );
   }
 
   function handleDeleted(id) {
