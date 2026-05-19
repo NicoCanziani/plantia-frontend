@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { SidebarProvider, useSidebar } from './context/SidebarContext';
+import { ToastProvider } from './context/ToastContext';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import Sidebar from './components/Sidebar';
 
 import Login from './pages/Login';
@@ -13,7 +15,7 @@ import Settings from './pages/Settings';
 
 function ProtectedLayout() {
   const { user, loading } = useAuth();
-  const { open, toggle } = useSidebar();
+  const { toggle } = useSidebar();
 
   if (loading) {
     return (
@@ -28,7 +30,6 @@ function ProtectedLayout() {
   return (
     <div className="min-h-screen bg-canvas-ice">
       <Sidebar />
-
       <div className="lg:pl-64 min-h-screen flex flex-col">
         {/* Mobile topbar */}
         <header className="lg:hidden flex items-center gap-3 px-4 py-3 border-b border-stone-moss bg-canvas-ice sticky top-0 z-10">
@@ -43,7 +44,6 @@ function ProtectedLayout() {
           </button>
           <span className="text-[16px] font-bold text-adaline-ink">🌿 Plantia</span>
         </header>
-
         <main className="flex-1 px-4 py-6 lg:px-8 lg:py-8 max-w-5xl w-full mx-auto">
           <Outlet />
         </main>
@@ -61,27 +61,29 @@ function PublicRoute() {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <SidebarProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<PublicRoute />}>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Route>
-
-            <Route path="/auth/callback" element={<AuthCallback />} />
-
-            <Route element={<ProtectedLayout />}>
-              <Route path="/" element={<Navigate to="/plants" replace />} />
-              <Route path="/plants" element={<Plants />} />
-              <Route path="/plants/:id" element={<PlantDetail />} />
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/settings" element={<Settings />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </SidebarProvider>
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <ToastProvider>
+          <SidebarProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route element={<PublicRoute />}>
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                </Route>
+                <Route path="/auth/callback" element={<AuthCallback />} />
+                <Route element={<ProtectedLayout />}>
+                  <Route path="/" element={<Navigate to="/plants" replace />} />
+                  <Route path="/plants" element={<Plants />} />
+                  <Route path="/plants/:id" element={<PlantDetail />} />
+                  <Route path="/calendar" element={<Calendar />} />
+                  <Route path="/settings" element={<Settings />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </SidebarProvider>
+        </ToastProvider>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }
