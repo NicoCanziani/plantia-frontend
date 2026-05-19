@@ -27,6 +27,9 @@ export default function WateringEventModal({ plants, event, onClose, onSaved, on
     notes: event?.notes ?? '',
     plantId: event?.plantId ?? plants[0]?.id ?? '',
   });
+  const [repeatEnabled, setRepeatEnabled] = useState(false);
+  const [repeatEvery, setRepeatEvery] = useState(1);
+  const [repeatUnit, setRepeatUnit] = useState('semanas');
   const [loadingSuggestion, setLoadingSuggestion] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
@@ -56,10 +59,18 @@ export default function WateringEventModal({ plants, event, onClose, onSaved, on
       setError('Completá título, fecha y planta');
       return;
     }
+    if (!isEdit && repeatEnabled && (!repeatEvery || repeatEvery < 1)) {
+      setError('Ingresá un número válido para la repetición');
+      return;
+    }
     setSaving(true);
     setError('');
     try {
-      const payload = { ...form, plantId: Number(form.plantId) };
+      const payload = {
+        ...form,
+        plantId: Number(form.plantId),
+        ...(!isEdit ? { repeatEnabled, ...(repeatEnabled ? { repeatEvery, repeatUnit } : {}) } : {}),
+      };
       let res;
       if (isEdit) {
         res = await calendarAPI.update(event.id, payload);
@@ -139,6 +150,56 @@ export default function WateringEventModal({ plants, event, onClose, onSaved, on
             />
           </Field>
         </div>
+
+        {/* Repetición — solo al crear */}
+        {!isEdit && (
+          <div className="flex flex-col gap-3 border border-stone-moss rounded-lg p-4">
+            <div className="flex items-center justify-between">
+              <span className="text-[13px] font-medium text-adaline-ink">Repetir evento</span>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={repeatEnabled}
+                onClick={() => setRepeatEnabled((v) => !v)}
+                className={[
+                  'relative w-10 h-6 rounded-full transition-colors shrink-0',
+                  repeatEnabled ? 'bg-valley-green' : 'bg-stone-moss',
+                ].join(' ')}
+              >
+                <span
+                  className={[
+                    'absolute top-1 w-4 h-4 rounded-full bg-white transition-transform shadow-sm',
+                    repeatEnabled ? 'translate-x-5' : 'translate-x-1',
+                  ].join(' ')}
+                />
+              </button>
+            </div>
+
+            {repeatEnabled && (
+              <div className="flex items-center gap-2">
+                <span className="text-[13px] text-slate-mist shrink-0">Cada</span>
+                <input
+                  type="number"
+                  min="1"
+                  max="30"
+                  className="input w-20 text-center"
+                  value={repeatEvery}
+                  onChange={(e) => setRepeatEvery(Math.max(1, Number(e.target.value)))}
+                />
+                <select
+                  className="input flex-1"
+                  value={repeatUnit}
+                  onChange={(e) => setRepeatUnit(e.target.value)}
+                >
+                  <option value="dias">días</option>
+                  <option value="semanas">semanas</option>
+                  <option value="meses">meses</option>
+                </select>
+                <span className="text-[12px] text-slate-mist shrink-0">· 6 meses</span>
+              </div>
+            )}
+          </div>
+        )}
 
         {error && <p className="text-[13px] text-red-500">{error}</p>}
 
