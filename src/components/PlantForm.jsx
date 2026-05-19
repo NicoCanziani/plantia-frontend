@@ -38,7 +38,7 @@ export default function PlantForm({ values, onChange, loading }) {
                   ? t === 'INTERIOR'
                     ? 'bg-forest-dew text-valley-green border-forest-dew'
                     : 'bg-stone-moss text-deep-earth border-stone-moss'
-                  : 'bg-canvas-ice text-mist-gray border-stone-moss hover:border-adaline-ink',
+                  : 'bg-canvas-ice text-slate-mist border-stone-moss hover:border-adaline-ink',
               ].join(' ')}
             >
               {t === 'INTERIOR' ? 'Interior' : 'Exterior'}

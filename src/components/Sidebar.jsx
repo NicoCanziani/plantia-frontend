@@ -70,7 +70,7 @@ export default function Sidebar() {
         <div className="px-3 py-4 border-t border-stone-moss">
           <div className="px-4 py-2 mb-1">
             <p className="text-[13px] font-medium text-adaline-ink truncate">{user?.name}</p>
-            <p className="font-mono text-[11px] text-mist-gray truncate">{user?.email}</p>
+            <p className="font-mono text-[11px] text-slate-mist truncate">{user?.email}</p>
           </div>
           <button
             onClick={handleLogout}

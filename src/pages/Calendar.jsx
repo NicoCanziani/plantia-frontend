@@ -21,7 +21,7 @@ function toFCEvent(ev) {
     title: ev.completed ? `✓ ${ev.title}` : ev.title,
     date: ev.date.slice(0, 10),
     backgroundColor: ev.completed ? '#e0e5d5' : colors.background,
-    textColor: ev.completed ? '#c5ccb6' : colors.textColor,
+    textColor: ev.completed ? '#000000' : colors.textColor,
     extendedProps: ev,
   };
 }

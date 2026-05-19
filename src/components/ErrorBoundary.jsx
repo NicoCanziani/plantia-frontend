@@ -14,7 +14,7 @@ export class ErrorBoundary extends Component {
           <div className="text-center max-w-sm">
             <p className="text-[48px] mb-4">🌵</p>
             <h2 className="text-[20px] font-bold text-adaline-ink mb-2">Algo salió mal</h2>
-            <p className="text-[14px] text-mist-gray mb-6">
+            <p className="text-[14px] text-slate-mist mb-6">
               {this.state.error?.message || 'Error inesperado'}
             </p>
             <button

@@ -26,7 +26,7 @@ export default function PlantCard({ plant }) {
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-4xl text-mist-gray">
+          <div className="w-full h-full flex items-center justify-center text-4xl text-slate-mist">
             🌿
           </div>
         )}
@@ -41,8 +41,8 @@ export default function PlantCard({ plant }) {
       {/* Info */}
       <div className="px-6 py-4 flex flex-col gap-1">
         <p className="text-[18px] font-medium text-adaline-ink leading-tight">{plant.name}</p>
-        <p className="font-mono text-[12px] text-mist-gray">{plant.type}</p>
-        <p className="font-mono text-[12px] text-mist-gray mt-1">{formatDate(plant.addedAt)}</p>
+        <p className="font-mono text-[12px] text-slate-mist">{plant.type}</p>
+        <p className="font-mono text-[12px] text-slate-mist mt-1">{formatDate(plant.addedAt)}</p>
       </div>
     </Link>
   );

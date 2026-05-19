@@ -41,7 +41,7 @@ export default function Login() {
         <div className="text-center mb-8">
           <div className="text-[56px] leading-none mb-2">🌿</div>
           <h1 className="text-[28px] font-bold text-adaline-ink">Plantia</h1>
-          <p className="text-[14px] text-mist-gray mt-1">Tus plantas, organizadas.</p>
+          <p className="text-[14px] text-slate-mist mt-1">Tus plantas, organizadas.</p>
         </div>
 
         <div className="bg-canvas-ice border border-stone-moss rounded-lg p-6 flex flex-col gap-4">
@@ -70,7 +70,7 @@ export default function Login() {
 
           <div className="flex items-center gap-3">
             <div className="flex-1 h-px bg-stone-moss" />
-            <span className="text-[12px] text-mist-gray">o</span>
+            <span className="text-[12px] text-slate-mist">o</span>
             <div className="flex-1 h-px bg-stone-moss" />
           </div>
 
@@ -81,7 +81,7 @@ export default function Login() {
           </a>
         </div>
 
-        <p className="text-center text-[13px] text-mist-gray mt-4">
+        <p className="text-center text-[13px] text-slate-mist mt-4">
           ¿No tenés cuenta?{' '}
           <Link to="/register" className="text-valley-green hover:underline">Registrate</Link>
         </p>

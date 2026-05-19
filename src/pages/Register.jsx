@@ -33,7 +33,7 @@ export default function Register() {
         <div className="text-center mb-8">
           <h1 className="text-[47px] font-bold text-adaline-ink leading-none">🌿</h1>
           <h2 className="text-[28px] font-bold text-adaline-ink mt-2">Crear cuenta</h2>
-          <p className="text-[14px] text-mist-gray mt-1">Empezá a organizar tus plantas.</p>
+          <p className="text-[14px] text-slate-mist mt-1">Empezá a organizar tus plantas.</p>
         </div>
 
         <div className="bg-canvas-ice border border-stone-moss rounded-lg p-6 flex flex-col gap-4">
@@ -65,7 +65,7 @@ export default function Register() {
           </form>
         </div>
 
-        <p className="text-center text-[13px] text-mist-gray mt-4">
+        <p className="text-center text-[13px] text-slate-mist mt-4">
           ¿Ya tenés cuenta?{' '}
           <Link to="/login" className="text-valley-green hover:underline">
             Iniciar sesión

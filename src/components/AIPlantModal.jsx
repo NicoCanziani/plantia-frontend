@@ -71,7 +71,7 @@ export default function AIPlantModal({ onClose, onCreated }) {
         {/* Header */}
         <div className="flex items-center justify-between">
           <h2 className="text-[18px] font-bold text-adaline-ink">Agregar con IA</h2>
-          <button onClick={onClose} className="text-mist-gray hover:text-adaline-ink text-xl">✕</button>
+          <button onClick={onClose} className="text-slate-mist hover:text-adaline-ink text-xl">✕</button>
         </div>
 
         {step === 'upload' && (
@@ -92,7 +92,7 @@ export default function AIPlantModal({ onClose, onCreated }) {
               ) : (
                 <>
                   <span className="text-3xl">📷</span>
-                  <p className="text-[13px] text-mist-gray text-center">
+                  <p className="text-[13px] text-slate-mist text-center">
                     Arrastrá una imagen o hacé click para seleccionar
                   </p>
                 </>
@@ -108,7 +108,7 @@ export default function AIPlantModal({ onClose, onCreated }) {
 
             <div className="flex items-center gap-3">
               <div className="flex-1 h-px bg-stone-moss" />
-              <span className="text-[12px] text-mist-gray">o URL</span>
+              <span className="text-[12px] text-slate-mist">o URL</span>
               <div className="flex-1 h-px bg-stone-moss" />
             </div>
 
@@ -134,13 +134,13 @@ export default function AIPlantModal({ onClose, onCreated }) {
         {step === 'loading' && (
           <div className="flex flex-col items-center gap-4 py-8">
             <div className="w-10 h-10 border-2 border-valley-green border-t-transparent rounded-full animate-spin" />
-            <p className="text-[14px] text-mist-gray">Identificando planta...</p>
+            <p className="text-[14px] text-slate-mist">Identificando planta...</p>
           </div>
         )}
 
         {step === 'review' && (
           <>
-            <p className="text-[13px] text-mist-gray">Revisá y editá los datos antes de guardar.</p>
+            <p className="text-[13px] text-slate-mist">Revisá y editá los datos antes de guardar.</p>
             <PlantForm values={form} onChange={setForm} loading={saving} />
             {error && <p className="text-[13px] text-red-500">{error}</p>}
             <div className="flex gap-3">

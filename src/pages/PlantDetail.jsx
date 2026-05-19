@@ -98,7 +98,7 @@ export default function PlantDetail() {
     <div className="flex flex-col gap-6 max-w-2xl">
       <button
         onClick={() => navigate('/plants')}
-        className="flex items-center gap-1 text-[13px] text-mist-gray hover:text-adaline-ink self-start transition-colors"
+        className="flex items-center gap-1 text-[13px] text-slate-mist hover:text-adaline-ink self-start transition-colors"
       >
         ← Mis Plantas
       </button>
@@ -108,7 +108,7 @@ export default function PlantDetail() {
         {plant.imageUrl ? (
           <img src={plant.imageUrl} alt={plant.name} className="w-full h-full object-cover" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-6xl text-mist-gray">🌿</div>
+          <div className="w-full h-full flex items-center justify-center text-6xl text-slate-mist">🌿</div>
         )}
         <button
           onClick={() => fileRef.current?.click()}
@@ -124,12 +124,12 @@ export default function PlantDetail() {
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div>
           <h1 className="text-[28px] font-bold text-adaline-ink">{plant.name}</h1>
-          <p className="font-mono text-[13px] text-mist-gray mt-0.5">{plant.type}</p>
+          <p className="font-mono text-[13px] text-slate-mist mt-0.5">{plant.type}</p>
           <div className="flex items-center gap-2 mt-2 flex-wrap">
             <span className={`font-mono text-[11px] px-2 py-0.5 rounded-full ${TAG_STYLES[plant.tag] ?? ''}`}>
               {plant.tag}
             </span>
-            <span className="font-mono text-[12px] text-mist-gray">Agregada {formatDate(plant.addedAt)}</span>
+            <span className="font-mono text-[12px] text-slate-mist">Agregada {formatDate(plant.addedAt)}</span>
           </div>
         </div>
         <div className="flex gap-2 shrink-0">
@@ -158,7 +158,7 @@ export default function PlantDetail() {
         {plant.caresSummary ? (
           <p className="text-[14px] text-adaline-ink leading-relaxed">{plant.caresSummary}</p>
         ) : (
-          <p className="text-[14px] text-mist-gray">Sin resumen. Generá uno con IA →</p>
+          <p className="text-[14px] text-slate-mist">Sin resumen. Generá uno con IA →</p>
         )}
       </div>
 
@@ -171,7 +171,7 @@ export default function PlantDetail() {
               <div key={ev.id} className="py-3 flex items-center justify-between gap-2 flex-wrap">
                 <div>
                   <p className="text-[14px] text-adaline-ink">{ev.title}</p>
-                  <p className="font-mono text-[12px] text-mist-gray">{formatDate(ev.date)} · {ev.frequency}</p>
+                  <p className="font-mono text-[12px] text-slate-mist">{formatDate(ev.date)} · {ev.frequency}</p>
                 </div>
                 {ev.completed && (
                   <span className="font-mono text-[11px] bg-forest-dew text-valley-green px-2 py-0.5 rounded-full shrink-0">
@@ -190,7 +190,7 @@ export default function PlantDetail() {
           <div className="w-full sm:max-w-md bg-canvas-ice border border-stone-moss sm:rounded-[20px] rounded-t-[20px] p-6 flex flex-col gap-5 max-h-[92vh] overflow-y-auto">
             <div className="flex items-center justify-between">
               <h2 className="text-[18px] font-bold text-adaline-ink">Editar {plant.name}</h2>
-              <button onClick={() => setEditing(false)} className="text-mist-gray hover:text-adaline-ink text-xl leading-none">✕</button>
+              <button onClick={() => setEditing(false)} className="text-slate-mist hover:text-adaline-ink text-xl leading-none">✕</button>
             </div>
             <PlantForm values={form} onChange={setForm} loading={saving} />
             <div className="flex gap-3">

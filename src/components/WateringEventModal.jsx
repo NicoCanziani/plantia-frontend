@@ -89,7 +89,7 @@ export default function WateringEventModal({ plants, event, onClose, onSaved, on
           <h2 className="text-[18px] font-bold text-adaline-ink">
             {isEdit ? 'Editar evento' : 'Nuevo evento de riego'}
           </h2>
-          <button onClick={onClose} className="text-mist-gray hover:text-adaline-ink text-xl">✕</button>
+          <button onClick={onClose} className="text-slate-mist hover:text-adaline-ink text-xl">✕</button>
         </div>
 
         <div className="flex flex-col gap-3">

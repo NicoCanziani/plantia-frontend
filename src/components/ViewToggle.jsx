@@ -9,7 +9,7 @@ export default function ViewToggle({ view, onChange }) {
             'px-4 py-1.5 rounded-[16px] text-[13px] transition-colors',
             view === v
               ? 'bg-canvas-ice text-adaline-ink shadow-sm'
-              : 'text-mist-gray hover:text-adaline-ink',
+              : 'text-slate-mist hover:text-adaline-ink',
           ].join(' ')}
         >
           {v === 'grid' ? 'Cards' : 'Lista'}

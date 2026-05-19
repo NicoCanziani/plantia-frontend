@@ -32,12 +32,12 @@ export default function AuthCallback() {
         {error ? (
           <>
             <p className="text-[14px] text-red-500">{error}</p>
-            <p className="text-[13px] text-mist-gray mt-2">Redirigiendo...</p>
+            <p className="text-[13px] text-slate-mist mt-2">Redirigiendo...</p>
           </>
         ) : (
           <>
             <div className="w-10 h-10 border-2 border-valley-green border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-[14px] text-mist-gray">Autenticando con Google...</p>
+            <p className="text-[14px] text-slate-mist">Autenticando con Google...</p>
           </>
         )}
       </div>

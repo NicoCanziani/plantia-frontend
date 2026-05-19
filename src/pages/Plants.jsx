@@ -103,8 +103,8 @@ export default function Plants() {
       ) : plants.length === 0 ? (
         <div className="text-center py-16">
           <p className="text-[48px] mb-4">🌱</p>
-          <p className="text-[18px] text-mist-gray">Todavía no tenés plantas</p>
-          <p className="text-[14px] text-mist-gray mt-1">Agregá tu primera planta con IA o manualmente</p>
+          <p className="text-[18px] text-slate-mist">Todavía no tenés plantas</p>
+          <p className="text-[14px] text-slate-mist mt-1">Agregá tu primera planta con IA o manualmente</p>
           <div className="flex gap-3 justify-center mt-6">
             <button onClick={() => setShowManual(true)} className="btn-secondary">+ Manual</button>
             <button onClick={() => setShowAI(true)} className="btn-primary">✨ Con IA</button>
@@ -126,7 +126,7 @@ export default function Plants() {
           <div className="w-full sm:max-w-md bg-canvas-ice border border-stone-moss sm:rounded-[20px] rounded-t-[20px] p-6 flex flex-col gap-5 max-h-[92vh] overflow-y-auto">
             <div className="flex items-center justify-between">
               <h2 className="text-[18px] font-bold text-adaline-ink">Agregar planta</h2>
-              <button onClick={closeManual} className="text-mist-gray hover:text-adaline-ink text-xl leading-none">✕</button>
+              <button onClick={closeManual} className="text-slate-mist hover:text-adaline-ink text-xl leading-none">✕</button>
             </div>
             <PlantForm values={form} onChange={setForm} loading={saving} />
 
@@ -136,7 +136,7 @@ export default function Plants() {
               <input
                 type="file"
                 accept="image/*"
-                className="text-[13px] text-mist-gray file:mr-3 file:py-1.5 file:px-4 file:rounded-[20px] file:border file:border-stone-moss file:text-[13px] file:text-adaline-ink file:bg-canvas-ice hover:file:bg-forest-dew/50"
+                className="text-[13px] text-slate-mist file:mr-3 file:py-1.5 file:px-4 file:rounded-[20px] file:border file:border-stone-moss file:text-[13px] file:text-adaline-ink file:bg-canvas-ice hover:file:bg-forest-dew/50"
                 onChange={(e) => setImageFile(e.target.files[0] || null)}
               />
             </div>

@@ -41,7 +41,7 @@ export default function NotificationSettings() {
   }
 
   if (!settings) {
-    return <div className="text-[14px] text-mist-gray">Cargando...</div>;
+    return <div className="text-[14px] text-slate-mist">Cargando...</div>;
   }
 
   return (
@@ -69,7 +69,7 @@ export default function NotificationSettings() {
       />
 
       <div className="flex flex-col gap-1.5">
-        <label className="text-[13px] font-medium text-adaline-ink">Hora del recordatorio</label>
+        <label className="text-[13px] font-bold text-adaline-ink">Hora del recordatorio</label>
         <input
           type="time"
           className="input w-36"
@@ -77,7 +77,7 @@ export default function NotificationSettings() {
           onChange={(e) => handleChange('reminderTime', e.target.value)}
           disabled={saving}
         />
-        <p className="text-[12px] text-mist-gray">Se enviará a esta hora si tenés plantas que regar.</p>
+        <p className="text-[12px] text-gray">Se enviará a esta hora si tenés plantas que regar.</p>
       </div>
 
       {msg && <p className="text-[13px] text-valley-green">{msg}</p>}
@@ -89,8 +89,8 @@ function Toggle({ label, description, checked, onChange, disabled }) {
   return (
     <div className="flex items-start justify-between gap-4">
       <div>
-        <p className="text-[14px] font-medium text-adaline-ink">{label}</p>
-        <p className="text-[12px] text-mist-gray mt-0.5">{description}</p>
+        <p className="text-[14px] font-bold text-adaline-ink">{label}</p>
+        <p className="text-[12px] text-gray mt-0.5">{description}</p>
       </div>
       <button
         role="switch"

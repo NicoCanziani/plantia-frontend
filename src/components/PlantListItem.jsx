@@ -21,14 +21,14 @@ export default function PlantListItem({ plant }) {
         {plant.imageUrl ? (
           <img src={plant.imageUrl} alt={plant.name} className="w-full h-full object-cover" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-xl text-mist-gray">🌿</div>
+          <div className="w-full h-full flex items-center justify-center text-xl text-slate-mist">🌿</div>
         )}
       </div>
 
       {/* Info */}
       <div className="flex-1 min-w-0">
         <p className="text-[14px] font-medium text-adaline-ink truncate">{plant.name}</p>
-        <p className="font-mono text-[12px] text-mist-gray truncate">
+        <p className="font-mono text-[12px] text-slate-mist truncate">
           {plant.type} · {formatDate(plant.addedAt)}
         </p>
       </div>
