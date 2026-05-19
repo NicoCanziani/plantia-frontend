@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-canvas-ice: #fbfdf6;
+  --color-adaline-ink: #0a1d08;
+  --color-mist-gray: #c5ccb6;
+  --color-deep-earth: #31200b;
+  --color-valley-green: #203b14;
+  --color-stone-moss: #e0e5d5;
+  --color-amber-seed: #4a3212;
+  --color-forest-dew: #d7e8b5;
+  --color-blackest-night: #000000;
+
+  /* Typography */
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Fragment Mono', ui-monospace, monospace;
+
+  /* Spacing */
+  --spacing-section: 48px;
+  --spacing-card: 24px;
+
+  /* Shadows */
+  --shadow-subtle: rgba(99, 143, 61, 0.1) 0px 0px 0px 1px;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: -0.04em;
+    color: var(--color-adaline-ink);
+    background-color: var(--color-canvas-ice);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Fragment Mono resets letter-spacing */
+  .font-mono {
+    letter-spacing: 0.02em !important;
+  }
+}
+
+/* Utility classes compartidas */
+@layer components {
+  .input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--color-stone-moss);
+    border-radius: 8px;
+    background: var(--color-canvas-ice);
+    color: var(--color-adaline-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    letter-spacing: -0.04em;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .input:focus {
+    border-color: var(--color-valley-green);
+  }
+  .input::placeholder {
+    color: var(--color-mist-gray);
+  }
+  select.input {
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 24px;
+    border-radius: 20px;
+    background: var(--color-amber-seed);
+    color: var(--color-canvas-ice);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover {
+    opacity: 0.88;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 24px;
+    border-radius: 20px;
+    background: var(--color-canvas-ice);
+    color: var(--color-adaline-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    border: 1px solid var(--color-stone-moss);
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-valley-green);
+  }
+}
+
+/* FullCalendar custom styles */
+.fc {
+  font-family: var(--font-sans) !important;
+  letter-spacing: -0.04em;
+}
+
+.fc .fc-button {
+  background-color: var(--color-canvas-ice) !important;
+  border: 1px solid var(--color-stone-moss) !important;
+  color: var(--color-valley-green) !important;
+  border-radius: 20px !important;
+  padding: 6px 16px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 14px !important;
+  letter-spacing: -0.04em !important;
+  box-shadow: none !important;
+}
+
+.fc .fc-button:hover {
+  background-color: var(--color-forest-dew) !important;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: var(--color-amber-seed) !important;
+  border-color: var(--color-amber-seed) !important;
+  color: var(--color-canvas-ice) !important;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--color-adaline-ink) !important;
+}
+
+.fc .fc-col-header-cell-cushion,
+.fc .fc-daygrid-day-number {
+  color: var(--color-adaline-ink) !important;
+  font-size: 12px !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: var(--color-forest-dew) !important;
+}
+
+.fc-event {
+  border-radius: 6px !important;
+  border: none !important;
+  padding: 2px 6px !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+}
+
+.fc .fc-daygrid-event-harness {
+  margin-bottom: 2px;
+}
